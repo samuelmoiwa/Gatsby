@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <div className="nav_header_container">
       <div className="logo-header">
-        <StaticImage src="../images/logo.png" alt="" className="logo" />
+        <StaticImage src="../images/spacex-logo.png" alt="" className="img-logo" />
         <h2 className="logo">Space Travelers Hub</h2>
       </div>
 
