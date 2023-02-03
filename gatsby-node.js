@@ -8,6 +8,12 @@ exports.createPages = ({ actions }) => {
     })
 
     createPage({
+      path: `/Rockets`,
+      component: require.resolve(`./src/pages/Rockets.js`),
+      context: {},
+    })
+
+    createPage({
       path: `/Missions`,
       component: require.resolve(`./src/pages/Missions.js`),
       context: {},
