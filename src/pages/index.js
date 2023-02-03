@@ -1,76 +1,102 @@
-import React from "react";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { cancelRocket, fetchAllRockets, reserveRocket } from './../redux/rocket/rockets';
+import React from 'react'
+import NavBar from '../components/navBar'
+import { StaticImage } from 'gatsby-plugin-image'
 import "../css/App.css"
-import Navbar from "../components/navBar";
+import "../css/Index.css"
 
-
-const IndexPage = () => {
-
-  const rockets = useSelector((state) => state.rockets);
-  const dispatch = useDispatch();
-
-  const bookRocket = (id) => {
-    dispatch(reserveRocket(id));
-  };
-
-  const cancelReservation = (id) => {
-    dispatch(cancelRocket(id));
-  };
-
-  useEffect(() => {
-    if (rockets.length === 0) {
-      dispatch(fetchAllRockets());
-    }
-  }, [dispatch, rockets.length]);
+const Index = () => {
 
   return (
-
     <>
-    <Navbar />
-    <ul className="rocket-list">
-      {rockets
-        && rockets?.map((rocket) => (
-          <li className="list-item" key={rocket.id}>
-            <div className="card">
-              <div
-                className="card-img"
-                style={{
-                  backgroundImage: `url(${rocket.flickr_images})`,
-                }} />
-              <div className="card-body md:w-[70%]">
-                <h3 className="card-title">
-                  <span>{rocket.rockets_name}</span>
-                  {rocket && rocket.reserved === true && (
-                    <small>Reserved</small>
-                  )}
-                </h3>
-                <p className="card-desc">{rocket.description}</p>
-                {!rocket.reserved ? (
-                  <button
-                    type="button"
-                    className="reserve-btn"
-                    onClick={() => bookRocket(rocket.id)}
-                  >
-                    Reserve Rocket
-                  </button>
-                ) : (
-                  <button
-                    type="button"
-                    className="leave-btn"
-                    onClick={() => cancelReservation(rocket.id)}
-                  >
-                    Cancel Reservation
-                  </button>
-                )}
+      <NavBar />
+      <body className="main_container">
+        <div className='header_div'>
+          <div className='header_image'>
+          <StaticImage src="../images/header_image.png" alt="mass" className="img_header" />
+          </div>
+          <h2 className='header_text'> This is a place for all space lovers where everyone
+            will find a hundred things for themselves
+          </h2>
+          <button className='start_button'>Start Now</button>
+        </div>
+
+        <div className='our_terms_div'>
+          <div className='rewards_div'>
+            <div className='reward_1'>
+              <div className='reward_text'>
+                <h3 className='reward_text_header'>80</h3>
+                <h3>Satisfied clients</h3>
               </div>
             </div>
-          </li>
-        ))}
-    </ul>
+            <div className='reward_2'>
+            <div className='reward_text'>
+                <h3 className='reward_text_header'>200</h3>
+                <h3>Posts completed</h3>
+              </div>
+            </div>
+            <div className='reward_3'>
+            <div className='reward_text'>
+                <h3 className='reward_text_header'>90</h3>
+                <h3>Reviews given</h3>
+              </div>
+            </div>
+          </div>
+          <div className='our_team_main_div'>
+            <div className='our_team_left_div '>
+              <h2 className='our_team_header'>Our Team</h2>
+              <p className='our_team_text'>
+                Our team is a group of people who are passionate about space and
+                everything related to it. We are a group of people who are
+                passionate about space and everything related to it. We are a
+                group of people who are passionate about space and everything
+                related to it. We are a group of people who are passionate about
+                space and everything related to it.
+              </p>
+              <div className='our_team_right_image_div'>
+              <StaticImage src="../images/our_team_image.png" alt="" className="img-our_team" />
+
+              </div>
+
+            </div>
+            <div className='our_team_right_div '>
+            <StaticImage src="../images/mass.png" alt="" className="img-mass" />
+            </div>
+          </div>
+        </div>
+
+        <div className='work_example_main_div'>
+          <div className='work_example_left_div'>
+            <div className='work_example_left_text_div'>
+              <h2 className='work_example_header'>My Creative Works Latest
+                <span className='work_example_header_color'> Projects</span>
+              </h2>
+              <p className='work_example_text'>
+              I have selected and mentioned here some of my latest
+              projects to share with you
+              </p>
+              <button className='work_example_button'>Show More</button>
+            </div>
+
+          </div>
+          <div className='work_example_right_div'>
+            <div className='work_example_right_div_left'>
+              <StaticImage src="../images/space_img_1.png" alt="" className="img-work_example_right_1" />
+              <StaticImage src="../images/space_img_2.png" alt="" className="img-work_example_right_2" />
+            </div>
+            <div className='work_example_right_div_right'>
+              <StaticImage src="../images/space_img_3.png" alt="" className="img-work_example_right_3" />
+              <StaticImage src="../images/space_img_4.png" alt="" className="img-work_example_right_4" />
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+      </body>
     </>
-  );
+  )
 }
 
-export default IndexPage
+export default Index;
