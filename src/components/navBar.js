@@ -15,24 +15,38 @@ const Navbar = () => {
           <li>
             <Link
               to="/"
-              className={`nav_link ${(isActive) => (isActive ? 'active' : '')}`}
-              end
+              className={`nav_link `}
+              activeClassName='active'
+            >
+              Home
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              to="/Rockets"
+              className={`nav_link`}
+              activeClassName='active'
             >
               Rockets
             </Link>
           </li>
+
           <li>
             <Link
               to="/Missions/"
-              className={`nav_link ${(isActive) => (isActive ? 'active' : '')}`}
+              className={`nav_link`}
+              activeClassName='active'
             >
               Missions
             </Link>
           </li>
+
           <li>
             <Link
               to="/Profile/"
-              className={`nav_link ${(isActive) => (isActive ? 'active' : '')}`}
+              className={`nav_link`}
+              activeClassName='active'
             >
               My profile
             </Link>
