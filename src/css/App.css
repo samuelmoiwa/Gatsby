@@ -22,7 +22,8 @@ main {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #fff;
+  background-color: rgb(31, 30, 30);
+  z-index: 1;
 }
 
 div.logo-header {
@@ -34,6 +35,12 @@ div.logo-header {
 
 .img-logo {
   width: 4rem;
+}
+
+.logo-header h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgb(240, 240, 245);
 }
 
 .nav_items {
@@ -53,18 +60,24 @@ div.logo-header {
 a.nav_link {
   text-decoration: none;
   color: rgb(19, 19, 231);
+  font-weight: 800;
+  font-size: 1.2rem;
 }
 
 .nav_link:hover {
   text-decoration: underline;
+  color: #FFFFFF;
+  text-shadow: 0 0 10px #FFFFFF;
 }
 
 a.active {
   text-decoration: underline;
+  color: #FFFFFF;
+  text-shadow: 0 0 10px #FFFFFF;
 }
 
 /*
- Missions Component
+  Missions Component
 */
 div.mission-wrapper {
   padding: 0 40px;
